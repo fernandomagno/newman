@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Painel Newman // Cyber Ops</title>
+  <link rel="stylesheet" href="design-tokens.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="wrap">
+    <div class="topline">
+      <span class="system-label"><span class="signal-dot"></span><span class="signal">SYSTEM ONLINE</span> // TESTFULLY / NEURAL GATEWAY</span>
+      <span id="clock"></span>
+    </div>
+
+    <header class="hero">
+      <div>
+        <div class="eyebrow system-label">AUTOMATED HEALTH PROTOCOL // v2.0</div>
+        <h1>Painel Newman</h1>
+        <p>Dispare collections do Postman, acompanhe o histórico de execuções e abra os relatórios de telemetria.</p>
+      </div>
+      <div class="status status-indicator ok">
+        <span class="status-label system-label">RUN STATUS</span>
+        <span class="status-value">SYSTEM READY</span>
+      </div>
+    </header>
+
+    <nav class="tabs">
+      <button class="tab-btn active" data-tab="run">▶ EXECUTAR</button>
+      <button class="tab-btn" data-tab="dashboard">// DASHBOARD</button>
+      <button class="tab-btn" data-tab="add">// ADICIONAR NOVA COLLECTION</button>
+      <button class="tab-btn" data-tab="history">// HISTÓRICO</button>
+      <button class="tab-btn" data-tab="reports">// RELATÓRIOS</button>
+    </nav>
+
+    <section id="tab-dashboard" class="tab-content">
+      <div class="section-title">
+        DASHBOARD DE ENDPOINTS <span>// ÚLTIMAS EXECUÇÕES</span>
+        <button id="refresh-dashboard" class="btn-secondary">↻ Atualizar</button>
+      </div>
+      <div id="dashboard-collections"></div>
+      <p id="dashboard-empty" class="empty-state" hidden></p>
+    </section>
+
+    <section id="tab-run" class="tab-content active">
+      <div class="run-heading">
+        <div>
+          <div class="run-kicker">EXECUTION CONSOLE <span>// READY</span></div>
+          <h2>Escolha uma collection</h2>
+          <p>Selecione um fluxo de teste para iniciar uma nova execução.</p>
+        </div>
+        <div class="run-count" aria-live="polite">
+          <strong id="collections-count">0</strong>
+          <span>disponíveis</span>
+        </div>
+      </div>
+      <div class="service-block hud-panel run-service-block">
+        <form id="run-form">
+          <div id="collections-list" class="checks"></div>
+          <p id="collections-empty" class="empty-state" hidden>
+            Nenhuma collection adicionada ainda. Vá em "Adicionar Nova Collection".
+          </p>
+          <div class="run-action-bar">
+            <span>O resultado aparecerá no histórico após a execução.</span>
+            <div class="run-action-buttons">
+              <button type="submit" id="play-btn" class="btn-primary">▶ Executar agora</button>
+              <button type="button" id="clear-status-btn" class="btn-secondary">CLEAR</button>
+            </div>
+          </div>
+        </form>
+        <div id="run-status"></div>
+      </div>
+    </section>
+
+    <section id="tab-add" class="tab-content">
+      <div class="section-title">ADICIONAR NOVA COLLECTION <span>// IMPORT</span></div>
+      <div class="service-block hud-panel">
+        <form id="add-collection-form">
+          <label>
+            Nome da collection — opcional
+            <input type="text" id="new-collection-name" maxlength="120" placeholder="Ex.: SmokeTest de pagamentos" />
+          </label>
+          <label>
+            Collection do Postman (.json) *
+            <input type="file" id="new-collection-file" accept=".json" required />
+          </label>
+          <label>
+            Ambiente do Postman (.json) — opcional
+            <input type="file" id="new-environment-file" accept=".json" />
+          </label>
+          <button type="submit" id="save-collection-btn" class="btn-primary">＋ Salvar Collection</button>
+        </form>
+        <div id="add-status"></div>
+      </div>
+    </section>
+
+    <section id="tab-history" class="tab-content">
+      <div class="section-title">
+        HISTÓRICO DE EXECUÇÕES <span>// LOG</span>
+        <button id="refresh-history" class="btn-secondary">↻ Atualizar</button>
+      </div>
+      <div class="service-block hud-panel">
+        <div class="checks history-head">
+          <span>Data</span>
+          <span>Collection</span>
+          <span>Ambiente</span>
+          <span>Status</span>
+          <span>Reqs</span>
+          <span>Falhas</span>
+          <span>Relatório</span>
+        </div>
+        <div class="checks" id="history-list"></div>
+        <p id="history-empty" class="empty-state" hidden>Nenhuma execução registrada ainda.</p>
+      </div>
+    </section>
+
+    <section id="tab-reports" class="tab-content">
+      <div class="section-title">
+        RELATÓRIOS DE EXECUÇÕES <span>// ARCHIVE</span>
+        <button id="refresh-reports" class="btn-secondary">↻ Atualizar</button>
+      </div>
+      <div class="service-block hud-panel">
+        <ul id="reports-list"></ul>
+        <p id="reports-empty" class="empty-state" hidden>Nenhum relatório disponível ainda.</p>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <span>PAINEL NEWMAN RUNNER</span>
+      <span id="footer-status">// AGUARDANDO EXECUÇÃO</span>
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

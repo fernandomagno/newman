@@ -1,0 +1,9 @@
+node_modules/
+uploads/
+reports/*.html
+data/
+*.postman_collection.json
+*.postman_environment.json
+Lesson Record Service.json
+err.log
+out.log

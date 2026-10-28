@@ -1,0 +1,45 @@
+:root {
+  --bg-base: #05080d;
+  --bg-surface: #080d14;
+  --bg-elevated: #0b121b;
+  --surface-soft: rgba(255, 255, 255, 0.025);
+  --surface-hover: rgba(255, 255, 255, 0.045);
+  --text-primary: #f2f7fa;
+  --text-secondary: #9aa8b5;
+  --text-muted: #5f6d79;
+  --accent-primary: #53e5ff;
+  --accent-secondary: #7cf7d4;
+  --accent-warm: #d5b66f;
+  --border-subtle: rgba(120, 220, 255, 0.1);
+  --border-active: rgba(120, 220, 255, 0.3);
+  --success: #67f5b5;
+  --warning: #f2c96d;
+  --danger: #ff7070;
+  --font-ui: "Bahnschrift", "Trebuchet MS", sans-serif;
+  --font-mono: "Cascadia Code", Consolas, monospace;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --shadow-panel: 0 0 0 1px rgba(100, 220, 255, 0.04), 0 12px 40px rgba(0, 0, 0, 0.25);
+  --shadow-active: 0 0 0 1px rgba(120, 220, 255, 0.12), 0 0 22px rgba(83, 229, 255, 0.08);
+  --motion-fast: 150ms ease;
+  --motion-normal: 260ms ease;
+
+  /* Compatibility aliases for the existing UI modules. */
+  --bg: var(--bg-base);
+  --panel: var(--bg-surface);
+  --line: var(--border-subtle);
+  --cyan: var(--accent-primary);
+  --pink: var(--accent-warm);
+  --lime: var(--success);
+  --red: var(--danger);
+  --text: var(--text-primary);
+  --muted: var(--text-secondary);
+  --shadow: var(--shadow-panel);
+}

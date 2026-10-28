@@ -1,0 +1,15 @@
+{
+  "name": "painel-postman-runner",
+  "version": "1.0.0",
+  "description": "Painel web para executar collections do Postman, ver historico e relatorios de execucao",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.19.2",
+    "multer": "^2.0.0",
+    "newman": "^6.2.1"
+  }
+}
